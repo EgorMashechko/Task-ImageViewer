@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ImageCollectionViewCell" customModule="Task2_Lesson17" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="261" height="386"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="261" height="386"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="5mz-c5-Nnz">
+                        <rect key="frame" x="0.0" y="0.0" width="261" height="386"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XkZ-RC-mka" userLabel="Content View">
+                                <rect key="frame" x="0.0" y="0.0" width="261" height="386"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No images to display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="vIb-c8-1JO">
+                                        <rect key="frame" x="50.5" y="182.5" width="160" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zh2-Yr-uF3">
+                                        <rect key="frame" x="0.0" y="0.0" width="261" height="351"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Type comment" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pl8-TC-C5j">
+                                        <rect key="frame" x="0.0" y="352" width="261" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="uhF-Pk-4Lz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zh2-Yr-uF3" firstAttribute="top" secondItem="XkZ-RC-mka" secondAttribute="top" id="19F-Nh-3Sc"/>
+                                    <constraint firstItem="pl8-TC-C5j" firstAttribute="top" secondItem="zh2-Yr-uF3" secondAttribute="bottom" constant="1" id="9WR-UF-MtW"/>
+                                    <constraint firstItem="zh2-Yr-uF3" firstAttribute="leading" secondItem="XkZ-RC-mka" secondAttribute="leading" id="EXC-fd-qd6"/>
+                                    <constraint firstAttribute="bottom" secondItem="pl8-TC-C5j" secondAttribute="bottom" id="Gl3-Mt-SVy"/>
+                                    <constraint firstItem="vIb-c8-1JO" firstAttribute="centerX" secondItem="XkZ-RC-mka" secondAttribute="centerX" id="IPR-gH-YLI"/>
+                                    <constraint firstItem="pl8-TC-C5j" firstAttribute="centerX" secondItem="XkZ-RC-mka" secondAttribute="centerX" id="JuP-gJ-Pca"/>
+                                    <constraint firstItem="vIb-c8-1JO" firstAttribute="centerY" secondItem="XkZ-RC-mka" secondAttribute="centerY" id="MQA-Mw-wlc"/>
+                                    <constraint firstItem="pl8-TC-C5j" firstAttribute="leading" secondItem="XkZ-RC-mka" secondAttribute="leading" id="O7Z-jk-fgL"/>
+                                    <constraint firstAttribute="trailing" secondItem="zh2-Yr-uF3" secondAttribute="trailing" id="RJJ-7C-BAq"/>
+                                    <constraint firstAttribute="trailing" secondItem="pl8-TC-C5j" secondAttribute="trailing" id="qiJ-BM-JX9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="XkZ-RC-mka" secondAttribute="bottom" id="Keg-eO-Xts"/>
+                            <constraint firstItem="XkZ-RC-mka" firstAttribute="leading" secondItem="5mz-c5-Nnz" secondAttribute="leading" id="VBe-HT-X51"/>
+                            <constraint firstItem="XkZ-RC-mka" firstAttribute="top" secondItem="5mz-c5-Nnz" secondAttribute="top" id="X5O-HU-o01"/>
+                            <constraint firstAttribute="trailing" secondItem="XkZ-RC-mka" secondAttribute="trailing" id="mHB-JR-4Go"/>
+                            <constraint firstItem="XkZ-RC-mka" firstAttribute="width" secondItem="5mz-c5-Nnz" secondAttribute="width" id="mOk-Wk-rIk"/>
+                            <constraint firstItem="XkZ-RC-mka" firstAttribute="height" secondItem="5mz-c5-Nnz" secondAttribute="height" id="tGf-WH-DDL"/>
+                        </constraints>
+                        <viewLayoutGuide key="contentLayoutGuide" id="H9m-Sr-Ier"/>
+                        <viewLayoutGuide key="frameLayoutGuide" id="7Yg-Pb-3Vd"/>
+                    </scrollView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="5mz-c5-Nnz" secondAttribute="bottom" id="Bl2-Ia-jrH"/>
+                <constraint firstItem="5mz-c5-Nnz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MTm-TE-bWs"/>
+                <constraint firstItem="5mz-c5-Nnz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Qnz-qQ-X66"/>
+                <constraint firstAttribute="trailing" secondItem="5mz-c5-Nnz" secondAttribute="trailing" id="qsP-CA-XnW"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="261" height="386"/>
+            <connections>
+                <outlet property="imageView" destination="zh2-Yr-uF3" id="bkh-13-3uR"/>
+                <outlet property="scrollView" destination="5mz-c5-Nnz" id="Ibj-Om-cES"/>
+                <outlet property="textField" destination="pl8-TC-C5j" id="H2J-4R-pgX"/>
+            </connections>
+            <point key="canvasLocation" x="290.57971014492756" y="226.33928571428569"/>
+        </collectionViewCell>
+    </objects>
+</document>
