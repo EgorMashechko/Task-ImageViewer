@@ -1,19 +1,16 @@
 
-
-import Foundation
 import UIKit
 
 class ImageInspector {
     
+//MARK: Properties
     private let storagePathSuffix = "/Representations"
     private let storeDataPathSuffix = "/Representation"
     private let fileManager = FileManager.default
     private var storageURL: URL!
-    
     private var representationsArray: [String]? {
         return try? fileManager.contentsOfDirectory(atPath: storageURL.path)
     }
-    
     var representData: [ImageRepresentation]? {
         guard let representerNames = representationsArray else {return nil}
         var representers = [ImageRepresentation]()
@@ -29,8 +26,19 @@ class ImageInspector {
         return representers
     }
     
+//MARK: Initialization
+    init() {
+        if let directory = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            let storageDirectoryPath = directory.path + storagePathSuffix
+            if fileManager.fileExists(atPath: storageDirectoryPath) == false {
+                try? fileManager.createDirectory(atPath: storageDirectoryPath, withIntermediateDirectories: true, attributes: nil)
+            }
+            storageURL = URL(string: storageDirectoryPath)
+        }
+    }
+    
+//MARK: Methods
     func addToStorage(_ image: UIImage?) {
-        
         let imageData = image?.pngData()
         let representer = ImageRepresentation(imageData: imageData)
         let encoder = JSONEncoder()
@@ -52,16 +60,7 @@ class ImageInspector {
             }
         }
     }
-    
-    init() {
-        if let directory = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
-            let storageDirectoryPath = directory.path + storagePathSuffix
-            if fileManager.fileExists(atPath: storageDirectoryPath) == false {
-                try? fileManager.createDirectory(atPath: storageDirectoryPath, withIntermediateDirectories: true, attributes: nil)
-            }
-            storageURL = URL(string: storageDirectoryPath)
-        }
-    }
+
 }
 
 

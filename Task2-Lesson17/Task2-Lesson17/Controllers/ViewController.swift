@@ -3,11 +3,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+//MARK: Properties
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var showImagesButton: UIButton!
-    
     private var imageInspector: ImageInspector?
     
+//MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,6 +19,7 @@ class ViewController: UIViewController {
         imageInspector = ImageInspector()
     }
     
+//MARK: Methods
     private func configureButtonDisplay(for button: UIButton) {
         button.layer.cornerRadius = button.bounds.height / 2
         button.layer.borderWidth = 2

@@ -4,6 +4,7 @@ import UIKit
 
 class Presenter: UIViewController {
 
+//MARK: Properties
     @IBOutlet weak var collectionView: UICollectionView!
     private var currentRepresentation: ImageRepresentation?
     private let imageCellID = "cell"
@@ -11,6 +12,7 @@ class Presenter: UIViewController {
     var representations: [ImageRepresentation]?
     private var imageInspector: ImageInspector?
     
+//MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +25,8 @@ class Presenter: UIViewController {
         collectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: imageCellID)
     }
     
-    @IBAction func onBackButton(_ sender: UIButton) {
+//MARK: Methods
+    @IBAction private func onBackButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "", message: "Save before exit?", preferredStyle: .alert)
         let actionFirst = UIAlertAction(title: "Save", style: .default) { (_) in
             self.imageInspector?.saveData(of: self.representations)
@@ -74,8 +77,11 @@ extension Presenter: /*UICollectionViewDelegate*/ UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        currentRepresentation = representations?[indexPath.item]
+        if representations?.isEmpty == false {
+            currentRepresentation = representations?[indexPath.item]
+        }
     }
+    
 }
 
 // MARK: ImageCollectionViewCellDelegate

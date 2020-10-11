@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0458A0C52530840A004BE10D /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458A0C42530840A004BE10D /* PasswordManager.swift */; };
 		047D6D2A24F912E1005A83F4 /* ImageRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D6D2924F912E1005A83F4 /* ImageRepresentation.swift */; };
 		04BE5DAD24DADE5900840413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE5DAC24DADE5900840413 /* AppDelegate.swift */; };
 		04BE5DAF24DADE5900840413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE5DAE24DADE5900840413 /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0458A0C42530840A004BE10D /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
 		047D6D2924F912E1005A83F4 /* ImageRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepresentation.swift; sourceTree = "<group>"; };
 		04BE5DA924DADE5900840413 /* Task2-Lesson17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task2-Lesson17.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE5DAC24DADE5900840413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				04BE5DC024DAE05400840413 /* ImageInspector.swift */,
 				047D6D2924F912E1005A83F4 /* ImageRepresentation.swift */,
+				0458A0C42530840A004BE10D /* PasswordManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				04BE5DC124DAE05400840413 /* ImageInspector.swift in Sources */,
 				047D6D2A24F912E1005A83F4 /* ImageRepresentation.swift in Sources */,
 				04FA3A0824EBC29800EF2B44 /* ImageCollectionViewCell.swift in Sources */,
+				0458A0C52530840A004BE10D /* PasswordManager.swift in Sources */,
 				04BE5DAD24DADE5900840413 /* AppDelegate.swift in Sources */,
 				04BE5DCA24DB336600840413 /* LoginViewController.swift in Sources */,
 				04BE5DAF24DADE5900840413 /* SceneDelegate.swift in Sources */,
@@ -361,6 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				INFOPLIST_FILE = "Task2-Lesson17/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -379,6 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				INFOPLIST_FILE = "Task2-Lesson17/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

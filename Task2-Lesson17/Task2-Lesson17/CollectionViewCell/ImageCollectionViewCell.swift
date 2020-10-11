@@ -8,12 +8,13 @@ protocol ImageCollectionViewCellDelegate: AnyObject {
 
 class ImageCollectionViewCell: UICollectionViewCell {
 
+//MARK: Properties
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
-    
     weak var delegate: ImageCollectionViewCellDelegate?
     
+//MARK: LifeCycle methods
     override func awakeFromNib() {
         super.awakeFromNib()
         textField.delegate = self
@@ -22,7 +23,8 @@ class ImageCollectionViewCell: UICollectionViewCell {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustScrollView(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc func adjustScrollView(notification: Notification) {
+//MARK: Methods
+    @objc private func adjustScrollView(notification: Notification) {
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
         let keyboardFrame = keyboardValue.cgRectValue
         
@@ -36,6 +38,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     }
 }
 
+//MARK: UITextFieldDelegate
 extension ImageCollectionViewCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
