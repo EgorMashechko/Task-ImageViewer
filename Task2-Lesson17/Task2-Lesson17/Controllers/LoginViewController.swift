@@ -1,6 +1,6 @@
 
-
 import UIKit
+import Security
 
 enum LogInUserDefaultsKey: String {
     case passwordKey
@@ -8,23 +8,24 @@ enum LogInUserDefaultsKey: String {
 
 class LoginViewController: UIViewController {
 
+//MARK: Properties
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var passwordTextField: UITextField!
+    private var passwordManager: PasswordManager?
     
+//MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(adjustScrollView), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustScrollView), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        passwordManager = PasswordManager()
         passwordTextField.delegate = self
     }
-
-    @IBAction func onSetPasswordLabelTap(_ sender: UITapGestureRecognizer) {
-        setPassword()
-    }
     
-    @objc func adjustScrollView(notification: Notification) {
+//MARK: Methods
+    @objc private func adjustScrollView(notification: Notification) {
         guard let keyboardFrameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
         let keyboardFrame = keyboardFrameValue.cgRectValue
         
@@ -36,6 +37,10 @@ class LoginViewController: UIViewController {
         default: break
         }
     }
+
+    @IBAction private func onSetPasswordLabelTap(_ sender: UITapGestureRecognizer) {
+        setPassword()
+    }
     
     private func setPassword() {
         let alert = UIAlertController(title: "Set a password to acces the image storage", message: nil, preferredStyle: .alert)
@@ -44,18 +49,18 @@ class LoginViewController: UIViewController {
         }
         let action = UIAlertAction(title: "Continue", style: .default) { (_) in
             let text = alert.textFields?[0].text
-            UserDefaults.standard.set(text, forKey: LogInUserDefaultsKey.passwordKey.rawValue)
+            self.passwordManager?.savePassword(text, forKey: LogInUserDefaultsKey.passwordKey.rawValue)
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func onButtonLogIn(_ sender: UIButton) {
+    @IBAction private func onButtonLogIn(_ sender: UIButton) {
         userLogIn()
     }
     
     private func userLogIn() {
-        guard let password = UserDefaults.standard.string(forKey: LogInUserDefaultsKey.passwordKey.rawValue), let text = passwordTextField.text else {return}
+        guard let password = passwordManager?.password(forKey: LogInUserDefaultsKey.passwordKey.rawValue), let text = passwordTextField.text else {return}
         if password == text {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             if let destinationVC = storyboard.instantiateInitialViewController() as? ViewController {
@@ -63,6 +68,7 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
 }
 
 // MARK: TextFieldDelegate
